@@ -1,5 +1,7 @@
 import React from 'react';
 import Sidebar from './components/Sidebar';
+import GRNEntry from './components/GRNEntry';
+import OutProduct from './components/OutProduct';
 
 const App = () => {
   return (
