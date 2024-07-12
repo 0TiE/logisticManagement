@@ -2,6 +2,7 @@ import React from 'react';
 import Sidebar from './components/Sidebar';
 import GRNEntry from './components/GRNEntry';
 import OutProduct from './components/OutProduct';
+import Navbar123 from './components/Navbar/Navbar';
 
 const App = () => {
   return (
@@ -12,7 +13,9 @@ const App = () => {
     //   </div>
     // </div>
 
-    <Sidebar/>
+    // <Sidebar/>
+    <Navbar123/>
+    
   );
 };
 
