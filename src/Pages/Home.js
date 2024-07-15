@@ -1,18 +1,7 @@
 import React from 'react'
-import Sidebar from '../components/Sidebar'
-import Main from '../components/Main'
 
-
-function Home() {
+export const Home = () => {
   return (
-    <div>
-       <Sidebar/>
-      <div><Main/></div>
-    </div>
+    <div>Home</div>
   )
 }
-
-export default Home
-
-
-// rfce

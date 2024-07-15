@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Tracking() {
+export const Tracking = () => {
   return (
     <div>Tracking</div>
   )

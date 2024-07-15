@@ -1,22 +1,55 @@
-import React from 'react';
-import Sidebar from './components/Sidebar';
-import GRNEntry from './components/GRNEntry';
-import OutProduct from './components/OutProduct';
-import Navbar123 from './components/Navbar/Navbar';
+import React from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  createRoutesFromElements,
+  Outlet,
+  Route,
+} from "react-router-dom";
+import { Home } from "./Pages/Home";
+import { GRNEntry } from "./Pages/GRNEntry";
+import { Product } from "./Pages/Product";
+import SidebarComponent from "./components/Sbar/Sidebar";
+import { OutProduct } from "./Pages/OutProduct";
+import { StockManageme, StockManagement } from "./Pages/StockManageme";
+import { Tracking } from "./Pages/Tracking";
+import { DeliveryTracking } from "./Pages/DeliveryTracking";
+import NavbarComponnent from "./components/Nbar/Navbar";
 
 const App = () => {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Root />}>
+        <Route index element={<Home />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/GRNEntry" element={<GRNEntry />} />
+        <Route path="/OutProduct" element={<OutProduct />} />
+        <Route path="/StockManageme" element={<StockManagement />} />
+        <Route path="/Tracking" element={<Tracking />} />
+        <Route path="/DeliveryTracking" element={<DeliveryTracking />} />
+      </Route>
+    )
+  );
   return (
-    // <div className="h-screen flex items-center justify-center bg-gray-100">
-    //   <div className="p-8 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-4">
-    //     <h1 className="text-2xl font-bold">Hello, Tailwind!</h1>
-    //     <p className="text-gray-500">This is a simple example of using Tailwind CSS with React.</p>
-    //   </div>
-    // </div>
-
-    // <Sidebar/>
-    <Navbar123/>
-    
+    <div>
+      <RouterProvider router={router} />
+    </div>
   );
 };
 
 export default App;
+
+const Root = () => {
+  return (
+    <>  
+      <NavbarComponnent/>
+      <div className="flex h-screen ">
+      
+        <SidebarComponent/>
+        <div className="flex-1 me-4 overflow-y-auto p-4 mb-8">
+          <Outlet />
+        </div>
+      </div>
+    </>
+  );
+};
